@@ -10,7 +10,7 @@
 #include "utilities.h"
 
 // Configurações gerais
-const char phone_number[] = "+5547988414805";
+const char phone_number[] = "+55479884xxxx";
 static const uint32_t BAUD_RATE = 9600;
 static const uint32_t GSM_RATE = 115200;
 static const uint32_t GPS_RATE = 230400;
