@@ -7,15 +7,17 @@
 #include <TinyGsmClient.h>
 #include <TinyGPS++.h>
 #include <TimeLib.h>  // Biblioteca para manipular tempo
-#include "utilities.h"
+#include "TTGOTCALL.h" // Para esp32 ttgo t Call sim800l
+//#include "ESP32.h" // Para modulos separados esp32, sim800l, ublox m9
 
 // Configurações gerais
 const char phone_number[] = "+55479884xxxx";
-static const uint32_t BAUD_RATE = 9600;
-static const uint32_t GSM_RATE = 115200;
-static const uint32_t GPS_RATE = 230400;
 
-const unsigned long RESET_INTERVAL = 6UL * 60UL * 60UL * 1000UL; // 6 horas
+static const uint32_t BAUD_RATE = 9600;
+static const uint32_t GSM_RATE = 115200; // Padrão, nao deve ser alterado
+static const uint32_t GPS_RATE = 230400; // O padrão dos modulos gps é de 9600. para alterar vc precisa de um software https://content.u-blox.com/sites/default/files/2024-06/u-centersetup_v24.05.zip e uma plada de conexao usb to ttl FT232l
+
+const unsigned long RESET_INTERVAL = 6UL * 60UL * 60UL * 1000UL; //Reset modulo a cada 6 horas
 unsigned long lastResetTime = 0;
 
 TinyGsm modem(SerialGPRS);
